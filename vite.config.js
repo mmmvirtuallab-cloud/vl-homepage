@@ -6,5 +6,5 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   // MUST HAVE TRAILING SLASH
-  base: "/vl-homepage/", 
+  base: "https://mmmvirtuallab-cloud.github.io/vl-homepage/", 
 })
