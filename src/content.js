@@ -14,7 +14,7 @@ export const HEADER_CONTENT = {
 /**
  * Defines the structure for an experiment subject/category.
  */
-export const SUBJECTS = ['All Subjects', 'Physics', 'Chemistry', 'Biology'];
+export const SUBJECTS = ['All Subjects', 'Metrology', 'Dynamics', 'Fluid'];
 
 /**
  * Defines the structure for a single experiment card.
@@ -24,52 +24,52 @@ export const SUBJECTS = ['All Subjects', 'Physics', 'Chemistry', 'Biology'];
 const EXPERIMENTS = [
   {
     id: 'exp-1',
-    subject: 'Chemistry',
-    title: 'Titration Analysis',
-    description: 'Determine the concentration of an unknown acid by reacting it with a known concentration of a base. This is a crucial skill for analytical chemistry students worldwide, involving precise measurements and concentration calculations.',
+    subject: 'Metrology',
+    title: 'Profile Projector',
+    description: 'Study of Profile Projector and Measurement of Object Dimensions.',
     imagePath: '/images/screw.jpg', // Assuming you have this image in public/images/
-    link: '/experiment/titration-analysis'
+    link: "https://isu-ismail.github.io/profile-projector/#/experiments/profile-projector/Aim"
   },
-  {
-    id: 'exp-2',
-    subject: 'Physics',
-    title: "Ohm's Law Verification",
-    description: 'Investigate the relationship between voltage, current, and resistance in a simple electrical circuit. This fundamental experiment often requires students to manipulate variables like voltage source and resistor values.',
-    imagePath: '/images/ohm.jpg', 
-    link: '/experiment/ohms-law'
-  },
-  {
-    id: 'exp-3',
-    subject: 'Biology',
-    title: 'DNA Extraction',
-    description: 'Isolate and observe DNA from biological samples using common laboratory techniques and reagents. This experiment gives students a hands-on look at the molecular building blocks of life. It’s highly visual and engaging for beginners in genetics.',
-    imagePath: '/images/dna.jpg', 
-    link: '/experiment/dna-extraction'
-  },
-  {
-    id: 'exp-4',
-    subject: 'Physics',
-    title: 'Projectile Motion',
-    description: 'Analyze the trajectory of a projectile and understand the effects of launch angle and initial velocity. This simulation provides detailed data analysis.',
-    imagePath: '/images/invalid_path.jpg', // Intentionally invalid path for testing white background fallback
-    link: '/experiment/projectile-motion'
-  },
-  {
-    id: 'exp-5',
-    subject: 'Chemistry',
-    title: 'Chemical Reactions',
-    description: 'Observe and classify different types of chemical reactions, including synthesis and decomposition. Requires careful monitoring of color and temperature changes over time.',
-    imagePath: '/images/reactions.jpg',
-    link: '/experiment/chemical-reactions'
-  },
-  {
-    id: 'exp-6',
-    subject: 'Biology',
-    title: 'Photosynthesis Simulation',
-    description: 'Examine the factors affecting the rate of photosynthesis in aquatic plants, such as light intensity and carbon dioxide concentration, providing data visualization.',
-    imagePath: '/images/photosynthesis.jpg',
-    link: '/experiment/photosynthesis'
-  }
+  // {
+  //   id: 'exp-2',
+  //   subject: 'Physics',
+  //   title: "Ohm's Law Verification",
+  //   description: 'Investigate the relationship between voltage, current, and resistance in a simple electrical circuit. This fundamental experiment often requires students to manipulate variables like voltage source and resistor values.',
+  //   imagePath: '/images/ohm.jpg', 
+  //   link: '/experiment/ohms-law'
+  // },
+  // {
+  //   id: 'exp-3',
+  //   subject: 'Biology',
+  //   title: 'DNA Extraction',
+  //   description: 'Isolate and observe DNA from biological samples using common laboratory techniques and reagents. This experiment gives students a hands-on look at the molecular building blocks of life. It’s highly visual and engaging for beginners in genetics.',
+  //   imagePath: '/images/dna.jpg', 
+  //   link: '/experiment/dna-extraction'
+  // },
+  // {
+  //   id: 'exp-4',
+  //   subject: 'Physics',
+  //   title: 'Projectile Motion',
+  //   description: 'Analyze the trajectory of a projectile and understand the effects of launch angle and initial velocity. This simulation provides detailed data analysis.',
+  //   imagePath: '/images/invalid_path.jpg', // Intentionally invalid path for testing white background fallback
+  //   link: '/experiment/projectile-motion'
+  // },
+  // {
+  //   id: 'exp-5',
+  //   subject: 'Chemistry',
+  //   title: 'Chemical Reactions',
+  //   description: 'Observe and classify different types of chemical reactions, including synthesis and decomposition. Requires careful monitoring of color and temperature changes over time.',
+  //   imagePath: '/images/reactions.jpg',
+  //   link: '/experiment/chemical-reactions'
+  // },
+  // {
+  //   id: 'exp-6',
+  //   subject: 'Biology',
+  //   title: 'Photosynthesis Simulation',
+  //   description: 'Examine the factors affecting the rate of photosynthesis in aquatic plants, such as light intensity and carbon dioxide concentration, providing data visualization.',
+  //   imagePath: '/images/photosynthesis.jpg',
+  //   link: '/experiment/photosynthesis'
+  // }
 ];
 
 export default EXPERIMENTS;
