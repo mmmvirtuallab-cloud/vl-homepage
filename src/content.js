@@ -36,7 +36,7 @@ const EXPERIMENTS = [
     title: "Micrometer",
     description: 'An outside micrometer is a precision measuring instrument used to measure the external dimensions (such as diameter, thickness, or length) of small objects with high accuracy. ',
     imagePath: '/images/ohm.jpg', 
-    link: "https://mmmvirtuallab-cloud.github.io/micrometer/micrometer.html"
+    link: "https://mmmvirtuallab-cloud.github.io/micrometer/index.html"
   },
   // {
   //   id: 'exp-3',
