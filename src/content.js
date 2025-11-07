@@ -30,14 +30,14 @@ const EXPERIMENTS = [
     imagePath: '/images/screw.jpg', // Assuming you have this image in public/images/
     link: "https://isu-ismail.github.io/profile-projector/#/experiments/profile-projector/Aim"
   },
-  // {
-  //   id: 'exp-2',
-  //   subject: 'Physics',
-  //   title: "Ohm's Law Verification",
-  //   description: 'Investigate the relationship between voltage, current, and resistance in a simple electrical circuit. This fundamental experiment often requires students to manipulate variables like voltage source and resistor values.',
-  //   imagePath: '/images/ohm.jpg', 
-  //   link: '/experiment/ohms-law'
-  // },
+  {
+    id: 'exp-2',
+    subject: 'Metrology',
+    title: "Micrometer",
+    description: 'An outside micrometer is a precision measuring instrument used to measure the external dimensions (such as diameter, thickness, or length) of small objects with high accuracy. ',
+    imagePath: '/images/ohm.jpg', 
+    link: "https://mmmvirtuallab-cloud.github.io/micrometer/micrometer.html"
+  },
   // {
   //   id: 'exp-3',
   //   subject: 'Biology',
