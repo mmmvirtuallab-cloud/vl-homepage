@@ -1,0 +1,150 @@
+/* src/AvailableExperiments.module.css */
+.main {
+  width: 100%;
+  max-width: 1280px; /* max-w-7xl */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2.5rem 1rem; /* py-10 px-4 */
+  text-align: center;
+}
+
+.title {
+  font-size: 2.25rem; /* text-4xl */
+  font-weight: 700; /* font-bold */
+  color: #0f172a; /* text-slate-900 */
+  letter-spacing: -0.025em; /* tracking-tight */
+}
+
+.subtitle {
+  margin-top: 0.5rem; /* mt-2 */
+  max-width: 42rem; /* max-w-2xl */
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.125rem; /* text-lg */
+  color: #475569; /* text-slate-600 */
+}
+
+.searchContainer {
+  margin-top: 2rem; /* mt-8 */
+  max-width: 42rem; /* max-w-2xl */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem; /* px-4 py-3 */
+  font-size: 1.125rem; /* text-lg */
+  border: 1px solid #cbd5e1; /* border border-slate-300 */
+  border-radius: 9999px; /* rounded-full */
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); /* shadow-sm */
+  transition: all 0.2s;
+  box-sizing: border-box; /* Ensures padding doesn't break width */
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #2563eb; /* focus:ring-blue-500 */
+  box-shadow: 0 0 0 2px #2563eb; /* focus:ring-2 */
+}
+
+.grid {
+  margin-top: 2.5rem; /* mt-10 */
+  display: grid;
+  grid-template-columns: 1fr; /* grid-cols-1 */
+  gap: 2rem; /* gap-8 */
+}
+
+.noResults {
+  /* This class applies to the 1, 2, or 3 column layout */
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #64748b; /* text-slate-500 */
+  background-color: #f8fafc; /* bg-slate-50 */
+  padding: 1rem;
+  border-radius: 0.5rem; /* rounded-lg */
+}
+
+/* --- Experiment Card Styles --- */
+.card {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  transition: all 0.3s;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  text-align: left; /* Reset text align from parent */
+}
+.card:hover {
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+  transform: translateY(-4px);
+}
+
+.cardImage {
+  width: 100%;
+  height: 11rem; /* 176px */
+  background-size: cover;
+  background-position: center;
+  background-color: #f1f5f9; /* Fallback color */
+  transition: transform 0.3s ease-in-out;
+}
+.card:hover .cardImage {
+  transform: scale(1.05);
+}
+
+.cardContent {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Makes card footers align */
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s;
+}
+.card:hover .cardTitle {
+  color: #2563eb;
+}
+
+.cardDescription {
+  color: #64748b;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  flex-grow: 1; /* Makes description fill space */
+  /* 3-line clamp */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.cardLink {
+  margin-top: auto; /* Pushes to the bottom */
+  display: inline-block;
+  color: #2563eb;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+/* --- Responsive Grid --- */
+@media (min-width: 768px) {
+  /* md: */
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* md:grid-cols-2 */
+  }
+}
+@media (min-width: 1024px) {
+  /* lg: */
+  .grid {
+    grid-template-columns: repeat(3, 1fr); /* lg:grid-cols-3 */
+  }
+}

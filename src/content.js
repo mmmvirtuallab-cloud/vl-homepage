@@ -27,7 +27,7 @@ const EXPERIMENTS = [
     subject: 'Metrology',
     title: 'Profile Projector',
     description: 'Study of Profile Projector and Measurement of Object Dimensions.',
-    imagePath: '/images/screw.jpg', // Assuming you have this image in public/images/
+    imagePath: 'images/profileprojector.png', // Assuming you have this image in public/images/
     link: "https://isu-ismail.github.io/profile-projector/#/experiments/profile-projector/Aim"
   },
   {
@@ -35,7 +35,7 @@ const EXPERIMENTS = [
     subject: 'Metrology',
     title: "Micrometer",
     description: 'An outside micrometer is a precision measuring instrument used to measure the external dimensions (such as diameter, thickness, or length) of small objects with high accuracy. ',
-    imagePath: '/images/ohm.jpg', 
+    imagePath: 'images/micrometer.png', 
     link: "https://mmmvirtuallab-cloud.github.io/micrometer/index.html"
   },
 
@@ -44,7 +44,7 @@ const EXPERIMENTS = [
     subject: 'Metrology',
     title: "Surface Roughness 'Using profilometer'",
     description: 'A profilometer is a precision measuring instrument used to measure the surface profile of a material to quantify its roughness. ',
-    imagePath: '/images/ohm.jpg', 
+    imagePath: 'images/profile.jpg', 
     link: "  https://mmmvirtuallab-cloud.github.io/surface-roughness"
   },
   

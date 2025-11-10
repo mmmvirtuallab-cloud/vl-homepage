@@ -1,239 +1,131 @@
 // src/HomePage.jsx
-import React, { useState, useMemo, useRef } from "react";
+import React from "react";
+// Import static content instead of API hooks
+import EXPERIMENTS, { HEADER_CONTENT } from "./content";
 import styles from "./HomePage.module.css";
-import EXPERIMENTS, { SUBJECTS, HEADER_CONTENT } from "./content";
 
-// Component for a single experiment card (UPDATED)
-const ExperimentCard = ({ experiment }) => {
-  // Conditionally apply background style
-  const cardStyle = experiment.imagePath
-    ? { backgroundImage: `url(${experiment.imagePath})` }
-    : {};
+const features = [
+  {
+    icon: "🔬",
+    title: "Realistic Simulations",
+    description:
+      "Experience complex scientific phenomena in a safe, dynamic virtual environment.",
+  },
+  {
+    icon: "💻",
+    title: "Anywhere Access",
+    description:
+      "Conduct experiments from any device, anytime, eliminating physical lab constraints.",
+  },
+  {
+    icon: "💡",
+    title: "Guided Learning",
+    description:
+      "Follow step-by-step instructions and interactive guides to master core concepts.",
+  },
+  {
+    icon: "📈",
+    title: "Data Analysis Tools",
+    description:
+      "Capture, analyze, and visualize your experiment data using integrated tools.",
+  },
+];
 
-  // NOTE: If the image path is invalid, the browser will not load it,
-  // and the CSS fallback (white background) will apply.
-
-  return (
-    // If imagePath is present, add the .hasImage class for background and overlay
-    <div
-      className={`${styles.card} ${
-        experiment.imagePath ? styles.hasImage : ""
-      }`}
-      style={cardStyle}
-    >
-      {/* Container for text content and button, which is lifted above the background */}
-      <div className={styles.cardContent}>
-        {/* The Card Title (Will use white text on image background) */}
-        <h3 className={styles.cardTitle}>{experiment.title}</h3>
-
-        {/* Scrollable description area */}
-        <div className={styles.cardDescriptionContainer}>
-          <p className={styles.cardDescription}>{experiment.description}</p>
-        </div>
-
-        {/* The <a> tag for navigation (Unchanged) */}
-        <a href={experiment.link} className={styles.launchButton}>
-          Launch Experiment
-        </a>
-      </div>
-    </div>
-  );
-};
-
-// Component for a single experiment card (Unchanged)
-
-// HomePage Component (Updated)
 const HomePage = () => {
-  const [activeSubject, setActiveSubject] = useState("All Subjects");
-  const [isSearchMode, setIsSearchMode] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
+  // Get experiments directly from the imported content
+  const EXPERIMENTS_TO_SHOW_ON_HOME = 4;
+  const featuredExperiments = (EXPERIMENTS || []).slice(
+    0,
+    EXPERIMENTS_TO_SHOW_ON_HOME
+  );
 
-  const experimentsRef = useRef(null);
-
-  const handleBrowseClick = () => {
-    if (experimentsRef.current) {
-      experimentsRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  // FIX 1: Ensure initial results show when entering search mode
-  const handleSearchButtonClick = () => {
-    setIsSearchMode(true);
-    // Ensure the filter remains 'All Subjects' so experiments show up initially
-    setActiveSubject("All Subjects");
-  };
-
-  const handleExitSearch = () => {
-    setIsSearchMode(false);
-    setSearchTerm(""); // Clear search term on exit
-    setActiveSubject("All Subjects"); // Reset filter
-  };
-
-  // Clear search term inside the search input only
-  const handleClearSearch = () => {
-    setSearchTerm("");
-  };
-
-  // UPDATED: Filter logic now correctly applies both subject filter and search term
-  const filteredExperiments = useMemo(() => {
-    let list = EXPERIMENTS;
-    const lowerSearchTerm = searchTerm.toLowerCase();
-
-    // 1. Filter by Subject (only if not in search mode, or if a specific subject is selected)
-    // When in search mode, we rely on the search term, but we still allow 'All Subjects' or a specific one.
-    if (activeSubject !== "All Subjects") {
-      list = list.filter((exp) => exp.subject === activeSubject);
-    }
-
-    // 2. Filter by Search Term (Title or Description)
-    // FIX 2: This block ensures the search actually filters the list
-    if (searchTerm.length > 0) {
-      list = list.filter(
-        (exp) =>
-          exp.title.toLowerCase().includes(lowerSearchTerm) ||
-          exp.description.toLowerCase().includes(lowerSearchTerm)
-      );
-    }
-
-    return list;
-  }, [activeSubject, searchTerm]);
-
-  // Handle filter button click, resets search if subject changes
-  const handleFilterClick = (subject) => {
-    setActiveSubject(subject);
-    setSearchTerm(""); // Clear search if a filter is chosen
-    setIsSearchMode(false); // Exit search mode
-  };
-
-  const titleWords = HEADER_CONTENT.mainTitle.split(" ");
-  const dynamicTitle = titleWords.map((word, index) => {
-    const isBold =
-      word.toLowerCase() === "virtual" || word.toLowerCase() === "laboratory";
+  const renderPopularExperiments = () => {
+    // No loading/error states needed for static content
     return (
-      <span key={index} className={isBold ? styles.boldWord : ""}>
-        {word}{" "}
-      </span>
+      <div className={`${styles.experimentsContainer} ${styles.scrollbarHide}`}>
+        {featuredExperiments.map((exp) => (
+          // Use <a> tag for external links, as requested
+          <a
+            key={exp.id}
+            href={exp.link} // Use the 'link' property from content.js
+            target="_blank" // Open in a new tab (good for external links)
+            rel="noopener noreferrer"
+            className={styles.experimentCard}
+          >
+            {/* MODIFIED: Use imagePath for a background image */}
+            <div
+              className={styles.experimentImageContainer}
+              style={{ backgroundImage: `url(${exp.imagePath})` }}
+            >
+              {/* This div is now the image */}
+            </div>
+            <div className={styles.experimentContent}>
+              <h3 className={styles.experimentTitle}>{exp.title}</h3>
+              <p className={styles.experimentDescription}>{exp.description}</p>
+              <div className={styles.experimentLink}>Launch Experiment →</div>
+            </div>
+          </a>
+        ))}
+      </div>
     );
-  });
+  };
 
   return (
-    <div className={styles.homepage}>
-      {/* --- Top Navigation/Header (Cleaned) --- */}
-      <header className={styles.header}>
-        <div className={styles.logo}>University of Science Virtual Labs</div>
-        <nav className={styles.nav}>
-          <a href="#">Home</a>
-          <a href="#">About</a>
-        </nav>
-      </header>
+    <main className={styles.main}>
+      {/* --- Hero Section --- */}
+      <section className={styles.heroSection}>
+        {/* MODIFIED: Use HEADER_CONTENT for text */}
+        <h1 className={styles.heroTitle}>{HEADER_CONTENT.mainTitle}</h1>
+        <p className={styles.heroSubtitle}>{HEADER_CONTENT.description}</p>
+      </section>
 
-      {/* --- Welcome Section (Unchanged) --- */}
-      <section className={styles.welcomeSection}>
-        <div className={styles.welcomeContent}>
-          <h1>{dynamicTitle}</h1>
-          <p>{HEADER_CONTENT.description}</p>
-          <button
-            className={`${styles.ctaButton} ${styles.primaryButton}`}
-            onClick={handleBrowseClick}
-          >
-            {HEADER_CONTENT.browseButtonText}
-          </button>
-          <button className={`${styles.ctaButton} ${styles.secondaryButton}`}>
-            {HEADER_CONTENT.learnMoreButtonText}
-          </button>
+      {/* --- Popular Experiments Section --- */}
+      <section className={styles.section}>
+        <div className={styles.sectionHeader}>
+          <h2 className={styles.sectionTitle}>Popular Experiments</h2>
+          {/* Note: This "View All" link is static.
+              You could later make it scroll down or link to a new page. */}
+          <a href="#" className={styles.viewAllLink}>
+            View All →
+          </a>
         </div>
-        <div className={styles.welcomeImage}>{/* Image Placeholder */}</div>
+        {renderPopularExperiments()}
       </section>
 
-      {/* --- Available Experiments Section --- */}
-      <section className={styles.experimentsSection} ref={experimentsRef}>
-        <h2>{HEADER_CONTENT.availableExperimentsTitle}</h2>
-
-        {/* --- Filter and Search Row Logic --- */}
-        {isSearchMode ? (
-          // Display short search bar when in search mode
-          <div className={styles.largeSearchContainer}>
-            <div className={`${styles.searchBox} ${styles.shortSearchBox}`}>
-              <input
-                type="text"
-                placeholder="Search for an experiment..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                // FIX: Add logic for the 'X' button visible in the image
-                // The visual X is handled by CSS on the input
-              />
-              {searchTerm.length > 0 && (
-                <button
-                  className={styles.clearSearchButton}
-                  onClick={handleClearSearch}
-                >
-                  ✕
-                </button>
-              )}
+      {/* --- Features Section (Unchanged) --- */}
+      <section className={`${styles.section} ${styles.featuresSection}`}>
+        <h2 className={styles.featuresTitle}>Why Choose the Virtual Lab?</h2>
+        <div className={styles.featuresGrid}>
+          {features.map((feature, index) => (
+            <div key={index} className={styles.featureCard}>
+              <div className={styles.featureIcon}>{feature.icon}</div>
+              <h3 className={styles.featureTitle}>{feature.title}</h3>
+              <p className={styles.featureDescription}>{feature.description}</p>
             </div>
-            {/* The primary exit button when search bar is visible */}
-            <button
-              className={styles.exitSearchButton}
-              onClick={handleExitSearch}
-            >
-              ✕
-            </button>
-          </div>
-        ) : (
-          // Display filters and search button
-          <div className={styles.subjectFilterRow}>
-            {/* Search Button */}
-            <button
-              className={styles.searchFilterButton}
-              onClick={handleSearchButtonClick}
-            >
-              Search
-            </button>
-
-            {/* Subject Filter Buttons */}
-            {SUBJECTS.map((subject) => (
-              <button
-                key={subject}
-                className={
-                  subject === activeSubject
-                    ? styles.filterButtonActive
-                    : styles.filterButton
-                }
-                onClick={() => handleFilterClick(subject)}
-              >
-                {subject}
-              </button>
-            ))}
-          </div>
-        )}
-
-        {/* --- Experiment Grid --- */}
-        {filteredExperiments.length === 0 && (
-          // FIX: Only show "No results" message if search is active OR a non-matching filter is applied
-          <p className={styles.noResults}>
-            No experiments found matching your criteria.
-          </p>
-        )}
-
-        {filteredExperiments.length > 0 && (
-          <div className={styles.experimentGrid}>
-            {filteredExperiments.map((experiment) => (
-              <ExperimentCard key={experiment.id} experiment={experiment} />
-            ))}
-          </div>
-        )}
+          ))}
+        </div>
       </section>
 
-      {/* --- Footer (Unchanged) --- */}
-      <footer className={styles.footer}>
-        <p>© 2024 University of Science. All rights reserved.</p>
-        <nav className={styles.footerNav}>
-          <a href="#">Help Center</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Contact Us</a>
-        </nav>
-      </footer>
-    </div>
+      {/* --- CTA Section (Unchanged) --- */}
+      <section className={`${styles.section} ${styles.ctaSection}`}>
+        <div className={styles.ctaCard}>
+          <div className={styles.ctaContent}>
+            <h2 className={styles.ctaTitle}>Learn More About Our Mission</h2>
+            <p className={styles.ctaText}>
+              Founded on the belief that access to quality scientific education
+              should be universal, our platform aims to democratize lab access.
+              Explore our resources and drive scientific literacy forward.
+            </p>
+            <a href="#" className={styles.ctaButton}>
+              View All Resources
+            </a>
+          </div>
+          <div className={styles.ctaIconContainer}>
+            <div className={styles.rocketIcon}>🚀</div>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 };
 
