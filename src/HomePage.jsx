@@ -85,7 +85,7 @@ const HomePage = () => {
           <h2 className={styles.sectionTitle}>Popular Experiments</h2>
           {/* Note: This "View All" link is static.
               You could later make it scroll down or link to a new page. */}
-          <a href="#" className={styles.viewAllLink}>
+          <a href="experiments" className={styles.viewAllLink}>
             View All →
           </a>
         </div>

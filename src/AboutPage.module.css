@@ -1,0 +1,262 @@
+/* src/AboutPage.module.css */
+
+.main {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  padding-bottom: 4rem; /* Reduced padding */
+}
+
+/* --- 1. Hero Section --- */
+.heroSection {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1rem; /* Reduced padding */
+  text-align: center;
+}
+.heroTitle {
+  font-size: 2.5rem; /* Reduced font size */
+  font-weight: 800;
+  color: #0f172a;
+}
+.heroSubtitle {
+  margin-top: 1rem;
+  font-size: 1rem; /* Reduced font size */
+  color: #475569;
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- 2. Affiliation Section --- */
+.affiliationSection {
+  width: 100%;
+  max-width: 1024px;
+  margin: 2.5rem auto; /* Reduced margin */
+  padding: 0 1rem;
+}
+.affiliationCard {
+  background-color: #ffffff;
+  padding: 2rem; /* Reduced padding */
+  border-radius: 0.75rem;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+  border-left: 8px solid #f59e0b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.affiliationContent {
+  text-align: left;
+}
+.affiliationTitle {
+  font-size: 1.5rem; /* Reduced font size */
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.75rem;
+}
+.affiliationText {
+  color: #475569;
+  font-size: 0.9rem; /* Reduced font size */
+  line-height: 1.6;
+}
+.affiliationIcon {
+  display: flex;
+  justify-content: center;
+  font-size: 4rem; /* Reduced font size */
+}
+@media (min-width: 768px) {
+  .affiliationCard {
+    flex-direction: row;
+  }
+  .affiliationContent {
+    width: 75%;
+  }
+  .affiliationIcon {
+    width: 25%;
+  }
+}
+
+/* --- 3. Carousel Section --- */
+.carouselSection {
+  width: 100%;
+  max-width: 1280px;
+  margin: 3rem auto; /* Reduced margin */
+  padding: 0 1rem;
+}
+.sectionTitle {
+  font-size: 2rem; /* Reduced font size */
+  font-weight: 700;
+  color: #1e293b;
+  text-align: center;
+  margin-bottom: 2rem; /* Reduced margin */
+}
+.carouselContainer {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+.carouselSlider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+.carouselSlide {
+  flex-shrink: 0;
+  width: 100%;
+  position: relative;
+}
+.slideImage {
+  width: 100%;
+  height: 400px; /* Reduced height */
+  object-fit: cover;
+  display: block;
+}
+.slideContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.4) 70%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  color: #ffffff;
+  padding: 2rem; /* Reduced padding */
+}
+.slideTopic {
+  font-size: 1.25rem; /* Reduced font size */
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.slideDescription {
+  font-size: 0.9rem; /* Reduced font size */
+  margin-bottom: 1rem;
+  color: #e2e8f0;
+}
+.slideMeta {
+  font-size: 0.875rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+.slideMeta p {
+  margin: 0;
+}
+.carouselDots {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #94a3b8;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.dotActive {
+  background-color: #ffffff;
+}
+
+/* --- 4. Team Section --- */
+.teamSection {
+  width: 100%;
+  max-width: 1280px;
+  margin: 3rem auto; /* Reduced margin */
+  padding: 0 1rem;
+}
+.teamGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem; /* Reduced gap */
+}
+@media (min-width: 640px) {
+  .teamGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 768px) {
+  .teamGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.teamCard {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  text-align: center;
+  transition: all 0.3s;
+}
+.teamCard:hover {
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+  transform: translateY(-4px);
+}
+.teamImage {
+  width: 6rem; /* Reduced size */
+  height: 6rem; /* Reduced size */
+  border-radius: 50%;
+  margin: 0 auto 1rem auto;
+  object-fit: cover;
+  border: 4px solid #3b82f6;
+}
+.teamName {
+  font-size: 1.125rem; /* Reduced font size */
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.25rem;
+}
+.teamRole {
+  color: #2563eb;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.teamQualification {
+  color: #64748b;
+  font-size: 0.875rem;
+  font-style: italic;
+}
+
+/* --- 5. CTA Section --- */
+.ctaSection {
+  width: 100%;
+  max-width: 1024px;
+  margin: 4rem auto; /* Reduced margin */
+  padding: 0 1rem;
+}
+.ctaContainer {
+  text-align: center;
+  padding: 2rem 0; /* Reduced padding */
+}
+.ctaTitle {
+  font-size: 1.25rem; /* Reduced font size */
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+.ctaButton {
+  background-color: #2563eb;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
+  text-decoration: none;
+}
+.ctaButton:hover {
+  background-color: #1d4ed8;
+}

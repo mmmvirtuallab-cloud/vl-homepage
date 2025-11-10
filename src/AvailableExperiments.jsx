@@ -23,7 +23,7 @@ const ExperimentCard = ({ experiment }) => {
       <div className={styles.cardContent}>
         <h3 className={styles.cardTitle}>{experiment.title}</h3>
         <p className={styles.cardDescription}>{experiment.description}</p>
-        <div classNameclassName={styles.cardLink}>Launch Experiment →</div>
+        <div className={styles.cardLink}>Launch Experiment →</div>
       </div>
     </a>
   );

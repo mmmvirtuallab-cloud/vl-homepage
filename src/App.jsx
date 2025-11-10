@@ -9,6 +9,8 @@ import MainLayout from "./MainLayout";
 import HomePage from "./HomePage.jsx";
 import "./App.css";
 import AvailableExperiments from "./AvailableExperiments.jsx";
+import ResourcesPage from "./ResourcePage.jsx";
+import AboutPage from "./AboutPage.jsx";
 
 // --- A Simple Error Page Component ---
 const ErrorPage = () => {
@@ -41,14 +43,14 @@ const router = createBrowserRouter(
           element: <AvailableExperiments />,
         },
         // Add "resources" and "about" here when ready
-        // {
-        //   path: "resources",
-        //   element: <ResourcesPage />,
-        // },
-        // {
-        //   path: "about",
-        //   element: <AboutPage />,
-        // },
+        {
+          path: "resources",
+          element: <ResourcesPage />,
+        },
+        {
+          path: "about",
+          element: <AboutPage />,
+        },
       ],
     },
   ],

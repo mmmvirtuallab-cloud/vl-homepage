@@ -40,7 +40,7 @@ const EXPERIMENTS = [
   },
 
    {
-    id: 'exp-2',
+    id: 'exp-3',
     subject: 'Metrology',
     title: "Surface Roughness 'Using profilometer'",
     description: 'A profilometer is a precision measuring instrument used to measure the surface profile of a material to quantify its roughness. ',

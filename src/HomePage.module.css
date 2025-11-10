@@ -1,13 +1,11 @@
 /* src/HomePage.module.css */
-/* This file is a CSS-module translation of the Tailwind CSS classes 
-  from the provided HomePage.jsx component.
-*/
+/* --- COMPACT VERSION --- */
 
 /* --- Base Layout --- */
 .main {
   min-height: 100vh;
   background-color: #f8fafc; /* Tailwind: bg-slate-50 */
-  padding-bottom: 5rem; /* Tailwind: pb-20 */
+  padding-bottom: 4rem; /* Reduced from 5rem */
 }
 
 /* Base container for all sections */
@@ -26,14 +24,16 @@
   max-width: 1280px; /* Tailwind: max-w-7xl */
   margin-left: auto;
   margin-right: auto;
-  padding: 2rem 1rem 1.5rem 1rem; /* Tailwind: pt-8 pb-6 px-4 */
+  /* Reduced padding */
+  padding: 1.5rem 1rem 1rem 1rem;
   text-align: center;
 }
 
 .heroTitle {
-  font-size: 3.125rem; /* Tailwind: text-5xl */
+  /* Removed negative margin */
+  /* Reduced font size */
+  font-size: 2.75rem;
   font-weight: 800; /* Tailwind: font-extrabold */
-  /* Tailwind: bg-gradient-to-r from-slate-900 to-slate-700 */
   background-image: linear-gradient(to right, #0f172a, #334155);
   background-clip: text;
   -webkit-background-clip: text;
@@ -41,8 +41,10 @@
 }
 
 .heroSubtitle {
-  margin-top: 1.5rem; /* Tailwind: mt-6 */
-  font-size: 1.125rem; /* Tailwind: text-lg */
+  /* Reduced margin-top */
+  margin-top: 1rem;
+  /* Reduced font size */
+  font-size: 1rem;
   color: #64748b; /* Tailwind: text-slate-500 */
   max-width: 56rem; /* Tailwind: max-w-3xl */
   margin-left: auto;
@@ -54,11 +56,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem; /* Tailwind: mb-8 */
+  /* Reduced margin-bottom */
+  margin-bottom: 1.5rem;
 }
 
 .sectionTitle {
-  font-size: 1.875rem; /* Tailwind: text-3xl */
+  /* Removed negative margin */
+  /* Reduced font size */
+  font-size: 1.5rem;
   font-weight: 700; /* Tailwind: font-bold */
   color: #1e293b; /* Tailwind: text-slate-800 */
 }
@@ -103,7 +108,8 @@
 
 .experimentCard {
   flex: 0 0 auto; /* Tailwind: flex-none */
-  width: 20rem; /* Tailwind: w-80 */
+  /* Reduced width */
+  width: 18rem;
   scroll-snap-align: center; /* Tailwind: snap-center */
   background-color: #ffffff; /* Tailwind: bg-white */
   border-radius: 1rem; /* Tailwind: rounded-2xl */
@@ -121,13 +127,12 @@
   transform: translateY(-4px); /* Tailwind: hover:-translate-y-1 */
 }
 
-/* --- THIS IS THE MODIFIED STYLE --- */
 .experimentImageContainer {
   width: 100%;
-  height: 11rem; /* h-44 */
+  /* Reduced height */
+  height: 9rem;
   background-size: cover;
   background-position: center;
-  /* Fallback color if image is broken */
   background-color: #f1f5f9; /* bg-slate-100 */
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
@@ -137,16 +142,17 @@
 .experimentCard:hover .experimentImageContainer {
   transform: scale(1.05);
 }
-/* --- END OF MODIFICATION --- */
 
 .experimentContent {
-  padding: 1.25rem; /* Tailwind: p-5 */
+  /* Reduced padding */
+  padding: 1rem;
   display: flex;
   flex-direction: column;
 }
 
 .experimentTitle {
-  font-size: 1.25rem; /* Tailwind: text-xl */
+  /* Reduced font size */
+  font-size: 1.125rem;
   font-weight: 700; /* Tailwind: font-bold */
   color: #1e293b; /* Tailwind: text-slate-800 */
   margin-bottom: 0.5rem; /* Tailwind: mb-2 */
@@ -159,9 +165,9 @@
 .experimentDescription {
   color: #64748b; /* Tailwind: text-slate-500 */
   font-size: 0.875rem; /* Tailwind: text-sm */
-  margin-bottom: 1rem; /* Tailwind: mb-4 */
+  /* Reduced margin */
+  margin-bottom: 0.75rem;
   flex-grow: 1; /* Tailwind: flex-grow */
-  /* Tailwind: line-clamp-2 */
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -178,11 +184,13 @@
 
 /* --- Features Section --- */
 .featuresSection {
-  margin-top: 6rem; /* Tailwind: mt-24 */
+  /* Reduced margin */
+  margin-top: 4rem;
 }
 
 .featuresTitle {
-  font-size: 2.25rem; /* Tailwind: text-4xl */
+  /* Reduced font size */
+  font-size: 2rem;
   font-weight: 700; /* Tailwind: font-bold */
   color: #1e293b; /* Tailwind: text-slate-800 */
   text-align: center;
@@ -229,12 +237,14 @@
 
 /* --- CTA Section --- */
 .ctaSection {
-  margin-top: 6rem; /* Tailwind: mt-24 */
+  /* Reduced margin */
+  margin-top: 4rem;
 }
 
 .ctaCard {
   background-color: #ffffff; /* Tailwind: bg-white */
-  padding: 2.5rem; /* Tailwind: p-10 */
+  /* Reduced padding */
+  padding: 2rem;
   border-radius: 1rem; /* Tailwind: rounded-2xl */
   box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
     0 8px 10px -6px rgb(0 0 0 / 0.1); /* Tailwind: shadow-xl */
@@ -313,14 +323,16 @@
 @media (min-width: 640px) {
   /* Tailwind: sm: */
   .heroSection {
-    padding-top: 3rem; /* sm:pt-12 */
-    padding-bottom: 2rem; /* sm:pb-8 */
+    /* Reduced padding */
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
   }
   .heroTitle {
-    font-size: 4.5rem; /* sm:text-7xl */
+    /* Reduced font size */
+    font-size: 3.5rem;
   }
   .heroSubtitle {
-    font-size: 1.25rem; /* sm:text-xl */
+    font-size: 1.125rem; /* Tailwind: sm:text-xl */
   }
 }
 
@@ -331,7 +343,8 @@
     gap: 2rem; /* md:gap-8 */
   }
   .experimentCard {
-    width: 24rem; /* md:w-96 */
+    /* Reduced width */
+    width: 21rem;
   }
   .sectionHeader {
     text-align: left; /* md:text-left */
@@ -346,7 +359,7 @@
     width: 60%; /* md:w-3/5 */
   }
   .ctaIconContainer {
-    width: 40%; /* md:w-2/5 */
+    width: 40%; /* md:w-2/Warning */
   }
 }
 

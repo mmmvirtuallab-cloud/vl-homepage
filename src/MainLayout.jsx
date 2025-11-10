@@ -31,7 +31,7 @@ const MainLayout = () => {
           <Link to="/" className={styles.logoLink}>
             <div className={styles.logoImageContainer}>
               <img
-                src="/logo.svg"
+                src="/vl-homepage/images/logo.svg"
                 alt="Virtual Lab Logo"
                 className={styles.logoImage}
               />
@@ -69,10 +69,6 @@ const MainLayout = () => {
           </nav>
 
           {/* RIGHT SIDE: Icons */}
-          <div className={styles.headerRight}>
-            <button className={styles.helpButton}>?</button>
-            <img src="/logo.svg" alt="User" className={styles.userAvatar} />
-          </div>
         </div>
       </header>
 
