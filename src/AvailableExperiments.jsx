@@ -8,7 +8,7 @@ import styles from "./AvailableExperiments.module.css";
 // 3. Define the Experiment Card JSX directly inside the component
 const ExperimentCard = ({ experiment }) => {
   return (
-    <a key={exp.id} href={exp.link} className={styles.experimentCard}>
+    <a href={experiment.link} className={styles.card}>
       <div
         className={styles.cardImage}
         style={{ backgroundImage: `url(${experiment.imagePath})` }}
