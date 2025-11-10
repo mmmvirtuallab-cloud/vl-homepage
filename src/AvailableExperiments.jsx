@@ -1,23 +1,29 @@
 // src/AvailableExperiments.jsx
 import React, { useState, useMemo } from "react";
-// 1. Import static data from content.js
 import EXPERIMENTS from "./content"; // Make sure this path is correct
-// 2. Import the new CSS module
 import styles from "./AvailableExperiments.module.css";
 
-// 3. Define the Experiment Card JSX directly inside the component
+// 3. Define the Experiment Card JSX
+// The prop is named "experiment"
 const ExperimentCard = ({ experiment }) => {
   return (
-    <a href={experiment.link} className={styles.card}>
+    // We are removing target="_blank" to open in the same tab
+    <a
+      href={experiment.link} // <-- MUST use "experiment.link"
+      className={styles.card}
+    >
       <div
         className={styles.cardImage}
-        style={{ backgroundImage: `url(${experiment.imagePath})` }}
+        style={{ backgroundImage: `url(${experiment.imagePath})` }} // <-- MUST use "experiment.imagePath"
       >
         {/* The background image is handled by CSS */}
       </div>
       <div className={styles.cardContent}>
-        <h3 className={styles.cardTitle}>{experiment.title}</h3>
-        <p className={styles.cardDescription}>{experiment.description}</p>
+        <h3 className={styles.cardTitle}>{experiment.title}</h3>{" "}
+        {/* <-- MUST use "experiment.title" */}
+        <p className={styles.cardDescription}>{experiment.description}</p>{" "}
+        {/* <-- MUST use "experiment.description" */}
+        {/* This line is also fixed (no more "classNameclassName") */}
         <div className={styles.cardLink}>Launch Experiment →</div>
       </div>
     </a>
@@ -33,6 +39,7 @@ function AvailableExperiments() {
       return EXPERIMENTS; // Return all if search is empty
     }
     const lowerSearchTerm = searchTerm.toLowerCase();
+    // 'exp' is fine here, it's only used inside this filter
     return EXPERIMENTS.filter(
       (exp) =>
         exp.title.toLowerCase().includes(lowerSearchTerm) ||
@@ -40,7 +47,7 @@ function AvailableExperiments() {
     );
   }, [searchTerm]); // Only re-filter when searchTerm changes
 
-  // 5. Simplified render function (no loading/error)
+  // 5. Simplified render function
   const renderContent = () => {
     if (filteredExperiments.length === 0) {
       return (
@@ -50,8 +57,9 @@ function AvailableExperiments() {
       );
     }
 
-    // Render the card component we defined above
+    // Here, we map over the array and call each item "experiment"
     return filteredExperiments.map((experiment) => (
+      // We pass the prop as "experiment"
       <ExperimentCard key={experiment.id} experiment={experiment} />
     ));
   };
