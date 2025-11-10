@@ -1,34 +1,40 @@
-name: Deploy Vite App via gh-pages
-#done
+name: Deploy Vite App to GitHub Pages (Peaceiris Action)
+
 on:
   push:
     branches:
-      - main # Trigger the workflow when changes are pushed to the 'main' branch
-  workflow_dispatch: # Allows manual run from the Actions tab
+      - main # Trigger the workflow when changes are pushed to the 'master' branch
+  workflow_dispatch:
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
+    
     steps:
       - name: ⚙️ Checkout repository
         uses: actions/checkout@v4
         with:
-          # Fetch history is crucial for the gh-pages action to work correctly
+          # Necessary for the deployment tool to work with the gh-pages branch
           fetch-depth: 0 
-
+          
       - name: 🛠️ Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '20' # Use a stable Node.js version
 
       - name: 📥 Install dependencies
-        # Use 'ci' for a clean, reliable install based on package-lock.json
         run: npm ci
 
-      - name: 🚀 Run Deployment Script
-        # Executes your combined 'predeploy' (npm run build) and 'deploy' (gh-pages -d dist) commands
-        run: npm run deploy
-        env:
-          # Sets the GitHub token for authentication
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: 🏗️ Build Vite Static Site
+        # Runs the standard Vite build command which outputs files to the /dist folder
+        run: npm run build
+
+      - name: 🚀 Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          # This secret is automatically provided by GitHub and is used for authentication
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # The source directory containing the built files
+          publish_dir: ./dist
+          # The destination branch for the live site
+          publish_branch: gh-pages
