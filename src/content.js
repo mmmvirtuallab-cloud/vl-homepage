@@ -48,11 +48,11 @@ const EXPERIMENTS = [
     link: "  https://mmmvirtuallab-cloud.github.io/surface-roughness"
   },
 {
-  id: 'exp-3',
+  id: 'exp-4',
     subject: 'Metrology',
-    title: "Surface Roughness 'Using profilometer'",
-    description: 'A profilometer is a precision measuring instrument used to measure the surface profile of a material to quantify its roughness. ',
-    imagePath: 'images/profile.jpg', 
+    title: "Three Wire Method",
+    description: ' The three wire method is a technique used to accurately measure the effective diameter of a screw thread by placing three precision wires of equal diameter into the thread grooves',
+    imagePath: 'images/threewire.png', 
     link: "https://mmmvirtuallab-cloud.github.io/Three-Wire-Method/index.html"
   },
   
