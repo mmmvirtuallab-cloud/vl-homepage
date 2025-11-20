@@ -47,6 +47,14 @@ const EXPERIMENTS = [
     imagePath: 'images/profile.jpg', 
     link: "  https://mmmvirtuallab-cloud.github.io/surface-roughness"
   },
+{
+  id: 'exp-3',
+    subject: 'Metrology',
+    title: "Surface Roughness 'Using profilometer'",
+    description: 'A profilometer is a precision measuring instrument used to measure the surface profile of a material to quantify its roughness. ',
+    imagePath: 'images/profile.jpg', 
+    link: "https://mmmvirtuallab-cloud.github.io/Three-Wire-Method/index.html"
+  },
   
   
   // {

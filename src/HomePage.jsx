@@ -45,7 +45,13 @@ const HomePage = () => {
       <div className={`${styles.experimentsContainer} ${styles.scrollbarHide}`}>
         {featuredExperiments.map((exp) => (
           // Use <a> tag for external links, as requested
-          <a key={exp.id} href={exp.link} className={styles.experimentCard}>
+          <a
+            key={exp.id}
+            href={exp.link}
+            className={styles.experimentCard}
+            target="_blank" // <--- ADD THIS LINE
+            rel="noopener noreferrer"
+          >
             {/* MODIFIED: Use imagePath for a background image */}
             <div
               className={styles.experimentImageContainer}

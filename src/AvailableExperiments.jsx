@@ -9,8 +9,10 @@ const ExperimentCard = ({ experiment }) => {
   return (
     // We are removing target="_blank" to open in the same tab
     <a
-      href={experiment.link} // <-- MUST use "experiment.link"
+      href={experiment.link}
       className={styles.card}
+      target="_blank" // <--- ADD THIS LINE
+      rel="noopener noreferrer" // <--- ADD THIS LINE (for security)
     >
       <div
         className={styles.cardImage}
