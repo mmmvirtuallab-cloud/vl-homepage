@@ -55,16 +55,17 @@ const EXPERIMENTS = [
     imagePath: 'images/threewire.png', 
     link: "https://mmmvirtuallab-cloud.github.io/Three-Wire-Method/index.html"
   },
+  {
+  id: 'exp-5', // Ensure this ID is unique in your list
+  subject: 'Metrology',
+  title: 'Optical Autocollimator',
+  description: 'Measure minute angular deviations and verify surface straightness using precision optical principles. Learn to detect geometric errors in flat and tapered workpieces using light reflection.',
+  imagePath: 'images/autocollimator.png', // ⚠️ Make sure you add an image with this name to your public/images folder
+  link: 'https://mmmvirtuallab-cloud.github.io/autocollimator-lab/' // This matches the basePath you set in next.config.js
+},
   
   
-  // {
-  //   id: 'exp-3',
-  //   subject: 'Biology',
-  //   title: 'DNA Extraction',
-  //   description: 'Isolate and observe DNA from biological samples using common laboratory techniques and reagents. This experiment gives students a hands-on look at the molecular building blocks of life. It’s highly visual and engaging for beginners in genetics.',
-  //   imagePath: '/images/dna.jpg', 
-  //   link: '/experiment/dna-extraction'
-  // },
+  // 
   // {
   //   id: 'exp-4',
   //   subject: 'Physics',

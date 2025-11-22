@@ -3,11 +3,15 @@ name: Deploy Vite App to GitHub Pages (Peaceiris Action)
 on:
   push:
     branches:
-      - main # Trigger the workflow when changes are pushed to the 'master' branch
+      - main # Trigger the workflow when changes are pushed to the 'main' branch
   workflow_dispatch:
 
 jobs:
   build-and-deploy:
+    # ⬇️ THIS IS THE NEW CONDITION ⬇️
+    # The job only runs if the commit message contains the word "build" (case-insensitive)
+    if: contains(github.event.head_commit.message, 'build')
+
     runs-on: ubuntu-latest
     
     steps:
