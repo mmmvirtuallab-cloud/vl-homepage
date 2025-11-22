@@ -1,10 +1,5 @@
-// src/App.jsx
-
-import {
-  createBrowserRouter,
-  RouterProvider,
-  // We don't need Navigate anymore
-} from "react-router-dom";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 import MainLayout from "./MainLayout";
 import HomePage from "./HomePage.jsx";
 import "./App.css";
@@ -22,47 +17,31 @@ const ErrorPage = () => {
     </div>
   );
 };
-// ------------------------------------
 
-// 2. Define your routes
-const router = createBrowserRouter(
-  [
-    {
-      // The parent path is now just "/"
-      // The basename will be added automatically
-      path: "/",
-      element: <MainLayout />,
-      errorElement: <ErrorPage />,
-      children: [
-        {
-          index: true, // Renders HomePage at "/"
-          element: <HomePage />,
-        },
-        {
-          path: "experiments", // Renders at "/experiments"
-          element: <AvailableExperiments />,
-        },
-        // Add "resources" and "about" here when ready
-        {
-          path: "resources",
-          element: <ResourcesPage />,
-        },
-        {
-          path: "about",
-          element: <AboutPage />,
-        },
-      ],
-    },
-  ],
-  {
-    // 3. THIS IS THE FIX: Tell the router about your base path
-    basename: "/vl-homepage/",
-  }
-);
-
-// 4. Update the App component to use the router
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    // We do NOT use RouterProvider here because main.jsx already has HashRouter.
+    // We use simple <Routes> and <Route> components instead.
+    <Routes>
+      {/* Parent Route: MainLayout */}
+      <Route path="/" element={<MainLayout />}>
+        {/* Child Route: Home (index) */}
+        <Route index element={<HomePage />} />
+
+        {/* Child Route: Experiments */}
+        <Route path="experiments" element={<AvailableExperiments />} />
+
+        {/* Child Route: Resources */}
+        <Route path="resources" element={<ResourcesPage />} />
+
+        {/* Child Route: About */}
+        <Route path="about" element={<AboutPage />} />
+
+        {/* Catch-all Route for 404 Errors */}
+        <Route path="*" element={<ErrorPage />} />
+      </Route>
+    </Routes>
+  );
 }
 
 export default App;
